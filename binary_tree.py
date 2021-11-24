@@ -1,6 +1,8 @@
 import unittest
 import pdb
 
+# Search: https://leetcode.com/problems/search-in-a-binary-search-tree/
+# Delete: https://leetcode.com/problems/delete-node-in-a-bst/discuss/821420/Python-O(h)-solution-explained
 class Node:
     def __init__(self, value):
         self.value = value
@@ -35,18 +37,50 @@ class BSTIterative:
                     return
 
     def search(self, value):
-        pass
+        current = self.root
+        while current:
+            if current.value == value:
+                return current
+
+            elif current.value > value:
+                current = current.left
+            else:
+                current = current.right
+        return None
 
     def delete(self, value):
         pass
 
     def traverse_in(self):
-        pass
+        stack = []
+        results = []
+        current = self.root
+        while current or stack:
+            if current:
+                stack.append(current)
+                current = current.left
+            else:
+                current = stack.pop()
+                results.append(current.value)
+                current = current.right
+        return results
+
 
     def traverse_pre(self):
-        pass
+        results = []
+        stack = []
+        current = self.root
+        while stack or current:
+            if current:
+                results.append(current.value)
+                stack.append(current)
+                current = current.left
+            else:
+                current = stack.pop()
+                current = current.right
+        return results
 
-    def traverse_past(self):
+    def traverse_post(self):
         pass
 
 
@@ -59,10 +93,10 @@ class BSTRecursive:
             if not root:
                 return Node(value)
 
-            if root.value > value:
+            elif root.value > value:
                 root.left = _insert(root.left, value)
             
-            if root.value < value:
+            else: # root.value < value
                 root.right = _insert(root.right, value)
             
             return root
@@ -108,6 +142,8 @@ class BSTRecursive:
 
 class TestBST(unittest.TestCase):
     def setUp(self):
+        self.traverse_in = [5, 9, 11, 13, 15, 19, 21, 30, 33, 48]
+        self.traverse_pre = [15, 9, 5, 11, 13, 21, 19, 33, 30, 48]
         self.bsti = BSTIterative()
         self.bstr = BSTRecursive()
         self.bstr.insert(15)
@@ -159,6 +195,17 @@ class TestBST(unittest.TestCase):
         self.assertEqual(self.bstr.search(33).value, 33)
         self.assertEqual(self.bstr.search(19).value, 19)
         self.assertFalse(self.bstr.search(99))
+    
+    def test_search_iterative(self):
+        self.assertEqual(self.bsti.search(33).value, 33)
+        self.assertEqual(self.bsti.search(19).value, 19)
+        self.assertFalse(self.bsti.search(99))
+    
+    def test_traverse_in_iterative(self):
+        self.assertEqual(self.bsti.traverse_in(), self.traverse_in)
+    
+    def test_traverse_in_iterative(self):
+        self.assertEqual(self.bsti.traverse_pre(), self.traverse_pre)
     
 if __name__ == '__main__':
     unittest.main()
