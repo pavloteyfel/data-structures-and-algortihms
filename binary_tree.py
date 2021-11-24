@@ -7,10 +7,43 @@ class Node:
         self.right = None
 
 class BSTIterative:
-    pass
+    def insert(self, value):
+        pass
+
+    def search(self, value):
+        pass
+
+    def delete(self, value):
+        pass
+
+    def traverse_in(self):
+        pass
+
+    def traverse_pre(self):
+        pass
+
+    def traverse_past(self):
+        pass
+
 
 class BSTRecursive:
-    pass
+    def insert(self, value):
+        pass
+
+    def search(self, value):
+        pass
+
+    def delete(self, value):
+        pass
+
+    def traverse_in(self):
+        pass
+
+    def traverse_pre(self):
+        pass
+
+    def traverse_past(self):
+        pass
 
 class TestBST(unittest.TestCase):
     def setUp(self):
