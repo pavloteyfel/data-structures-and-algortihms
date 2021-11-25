@@ -1,8 +1,5 @@
 sample = [2,6,4,1,7,4,8,3,3]
 
-
-
-
 def bubble_sort(array):
     size = len(array)
     for i in range(size):
@@ -24,10 +21,20 @@ def selection_sort(array):
         start += 1
     return array
 
-def insertion_sort(array):
-    pass
-        
+def insertion_sort(arr):
+    for key in range(1, len(arr)):
+        if arr[key] < arr[key-1]:
+            j = key
+            while j > 0 and arr[j] < arr[j-1]:
+                arr[j], arr[j-1] = arr[j-1], arr[j]
+                j -= 1
+    return arr
 
-print(bubble_sort(sample))
-print(selection_sort(sample))
+
+# print(bubble_sort(sample))
+# print(selection_sort(sample))
 print(insertion_sort(sample))
+
+import math
+
+print(math.log2(5000)*5000)
