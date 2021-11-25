@@ -95,6 +95,17 @@ class BSTRecursive:
     def __init__(self):
         self.root = None
 
+    def validate(self):
+        def _validate(node, left_b, right_b):
+            if not node:
+                return True
+            
+            if not (node.value > left_b and node.value < right_b):
+                return False
+            
+            return (_validate(node.left, left_b, node.value) and _validate(node.right, node.value, right_b))
+        return _validate(self.root, float('-inf'), float('inf'))
+
     def insert(self, value):
         def _insert(root, value):
             if not root:
@@ -228,6 +239,9 @@ class TestBST(unittest.TestCase):
         self.assertEqual(self.bstr.root.right.right.left.value, 30)
         self.assertEqual(self.bstr.root.right.right.right.value, 48)
     
+    def test_validate_recursive(self):
+        self.assertTrue(self.bstr.validate(), True)
+
     def test_search_recursive(self):
         self.assertEqual(self.bstr.search(33).value, 33)
         self.assertEqual(self.bstr.search(19).value, 19)
