@@ -94,8 +94,17 @@ class BSTIterative:
 class BSTRecursive:
     def __init__(self):
         self.root = None
+    
+    def max_depth(self):
+        def depth(root):
+            if not root:
+                return 0
+            return 1 + max(depth(root.left), depth(root.right))
+        return depth(self.root)
 
     def validate(self):
+        # https://www.youtube.com/watch?v=s6ATEkipzow
+        # https://leetcode.com/problems/validate-binary-search-tree/submissions/
         def _validate(node, left_b, right_b):
             if not node:
                 return True
@@ -263,8 +272,10 @@ class TestBST(unittest.TestCase):
     
     def test_delete_recursive(self):
         self.bstr.delete(21)
-        
         self.assertEqual(self.bstr.traverse_in(), [5, 9, 11, 13, 15, 19, 30, 33, 48])
+    
+    def test_max_depth_recursive(self):
+        self.assertEqual(self.bstr.max_depth(), 4)
     
 if __name__ == '__main__':
     unittest.main()
