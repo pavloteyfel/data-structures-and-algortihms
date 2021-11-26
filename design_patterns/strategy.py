@@ -1,10 +1,24 @@
 import abc
 
 class Node:
+    """Container for the binary search tree structure"""
     def __init__(self, value):
         self.value = value
         self.left = None
         self.right = None
+
+class BST:
+    """This is the context class, a binary search tree"""
+    def __init__(self):
+        self.root = None
+        self._insert_strategy = None
+
+    def set_insert_strategy(self, strategy):
+        self._insert_strategy = strategy
+    
+    def insert(self, value):
+        self.root = self._insert_strategy.execute(self.root, value)
+
 
 
 class Insert(abc.ABC):
@@ -23,7 +37,6 @@ class RecursiveInsert(Insert):
         return node
 
 class IterativeInsert(Insert):
-
     def execute(self, node, value):
         if not node:
             return Node(value)
@@ -43,16 +56,7 @@ class IterativeInsert(Insert):
                     current.right = Node(value)
                     return node
 
-class BST:
-    def __init__(self):
-        self.root = None
-        self._insert_strategy = None
 
-    def set_insert_strategy(self, strategy):
-        self._insert_strategy = strategy
-    
-    def insert(self, value):
-        self.root = self._insert_strategy.execute(self.root, value)
 
 
 bst = BST()
