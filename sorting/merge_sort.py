@@ -14,4 +14,6 @@ def merge(array1, array2):
     print('merged -> ', result)
     return result
 
-print(merge_sort([6,3,7,4,1,9,8]))
+# One liner for fun
+def sort(arr):
+    return arr if (l:=len(arr)) == 1 else sorted(sort(arr[:l//2]) + sort(arr[l//2:]))
