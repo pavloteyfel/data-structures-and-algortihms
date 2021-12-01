@@ -1,5 +1,6 @@
+from collections import deque
 import unittest
-import pdb
+
 
 # Search: https://leetcode.com/problems/search-in-a-binary-search-tree/
 # Delete: https://leetcode.com/problems/delete-node-in-a-bst/discuss/821420/Python-O(h)-solution-explained
@@ -89,6 +90,17 @@ class BSTIterative:
                 stack.append(node.left)
                 stack.append(node.right)
         return results[::-1]
+    
+    def traverse_lo(self):
+        q = deque([self.root])
+        results = []
+        while q:
+            current = q.popleft()
+            if current:
+                results.append(current.value)
+                q.append(current.left)
+                q.append(current.right)
+        return results
 
 
 class BSTRecursive:
@@ -276,6 +288,9 @@ class TestBST(unittest.TestCase):
     
     def test_max_depth_recursive(self):
         self.assertEqual(self.bstr.max_depth(), 4)
+    
+    def test_traverse_lo(self):
+        self.assertEqual(self.bsti.traverse_lo(), [15, 9, 21, 5, 11, 19, 33, 13, 30, 48])
     
 if __name__ == '__main__':
     unittest.main()
