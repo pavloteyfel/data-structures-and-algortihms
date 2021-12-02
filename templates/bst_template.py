@@ -54,6 +54,7 @@ class BSTIterative:
         pass
 
 
+
 class BSTRecursive:
     def __init__(self):
         self.root = None
@@ -92,11 +93,18 @@ class BSTRecursive:
     def traverse_in(self):
         pass
 
+
     def traverse_pre(self):
         pass
 
     def traverse_post(self):
         pass
+
+    def traverse_lo(seft):
+        pass
+
+
+
 
 class TestBST(unittest.TestCase):
     def setUp(self):
@@ -150,13 +158,13 @@ class TestBST(unittest.TestCase):
         self.assertEqual(self.bstr.root.right.right.left.value, 30)
         self.assertEqual(self.bstr.root.right.right.right.value, 48)
     
-    def test_validate_recursive(self):
-        self.assertTrue(self.bstr.validate(), True)
+    # def test_validate_recursive(self):
+    #     self.assertTrue(self.bstr.validate(), True)
 
-    def test_search_recursive(self):
-        self.assertEqual(self.bstr.search(33).value, 33)
-        self.assertEqual(self.bstr.search(19).value, 19)
-        self.assertFalse(self.bstr.search(99))
+    # def test_search_recursive(self):
+    #     self.assertEqual(self.bstr.search(33).value, 33)
+    #     self.assertEqual(self.bstr.search(19).value, 19)
+    #     self.assertFalse(self.bstr.search(99))
     
     # def test_search_iterative(self):
     #     self.assertEqual(self.bsti.search(33).value, 33)
@@ -165,6 +173,9 @@ class TestBST(unittest.TestCase):
     
     # def test_traverse_in_iterative(self):
     #     self.assertEqual(self.bsti.traverse_in(), self.traverse_in)
+    
+    # def test_traverse_in_resursive(self):
+    #     self.assertEqual(self.bstr.traverse_in(), self.traverse_in)
     
     # def test_traverse_pre_iterative(self):
     #     self.assertEqual(self.bsti.traverse_pre(), self.traverse_pre)
@@ -176,11 +187,11 @@ class TestBST(unittest.TestCase):
     #     self.bstr.delete(21)
     #     self.assertEqual(self.bstr.traverse_in(), [5, 9, 11, 13, 15, 19, 30, 33, 48])
     
-    def test_max_depth_recursive(self):
-        self.assertEqual(self.bstr.max_depth(), 4)
+    # def test_max_depth_recursive(self):
+    #     self.assertEqual(self.bstr.max_depth(), 4)
     
-    def test_traverse_lo(self):
-        self.assertEqual(self.bsti.traverse_lo(), [15, 9, 21, 5, 11, 19, 33, 13, 30, 48])
+    # def test_traverse_lo(self):
+    #     self.assertEqual(self.bsti.traverse_lo(), [15, 9, 21, 5, 11, 19, 33, 13, 30, 48])
     
 if __name__ == '__main__':
     unittest.main()
