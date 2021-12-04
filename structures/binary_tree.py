@@ -203,7 +203,13 @@ class BSTRecursive:
         return results
 
     def traverse_pre(self):
-        pass
+        results = []
+        def traverse(node):
+            results.append(node.value)
+            if node.left: traverse(node.left)
+            if node.right: traverse(node.right)
+        traverse(self.root)
+        return results
 
     def traverse_post(self):
         pass
