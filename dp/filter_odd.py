@@ -24,3 +24,27 @@ def filter_odd(array):
     # or an empy list. Let's concatenate it with the result of the result of 
     # the remaining filtering
     return containter + filter_odd(array[1:])
+
+
+import math
+
+
+
+def p(n,m):
+    if m == 0:
+        return 1
+
+    if m == 1:
+        return n
+
+    if m == -1:
+        return 1/n
+    
+    if m < 0:
+        return 1/n * p(n, m+1)
+
+    return n * p(n, m-1)
+
+print(pow(3,-4))
+print(p(3,-4))
+

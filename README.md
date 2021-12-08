@@ -64,10 +64,17 @@
 - Projects
 
 # Sources
+- 500 lines: https://aosabook.org/en/index.html
 - https://www.reddit.com/r/learnprogramming/wiki/faq#wiki_getting_started
 - https://aosabook.org/en/index.html
 - Software design: 
     - https://www.freecodecamp.org/news/software-design/
     - http://composingprograms.com
 - How to design a program: https://htdp.org
-- Distributed systems: https://www. youtube.com/watch?v=cQP8WApzIQQ&list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB
+- Distributed systems: https://www.youtube.com/watch?v=cQP8WApzIQQ&list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB
+- Grokkin Algorithms
+
+# Projects
+- Algorithm visualizer
+- StationX 2nd part / passwords
+- Build HTTP protocol
