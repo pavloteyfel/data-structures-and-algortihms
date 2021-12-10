@@ -31,7 +31,10 @@
     - Min Heap
     - Max Heap
     - Heap Implementation
-- Graphs & Graph Theory 
+- Graphs & Graph Theory
+    - implementation:
+        - add/remove vertex
+        - add/remove edge
 - Sets & Set Theory
 - Algorithm Design & Analysis
 
