@@ -14,18 +14,20 @@ class Graph:
     def dfs_recursive(self, start):
         results = []
         memory = {}
-        def dfs(start):
-            if not start:
+
+        def dfs(node):
+            if not node:
                 return
             
-            results.append(start)
-            memory[start] = True
+            results.append(node)
+            memory[node] = True
 
-            for vertex in self.adjacency_list[start]:
+            for vertex in self.adjacency_list[node]:
                 if vertex not in memory:
-                    return dfs(vertex)
+                    dfs(vertex)
 
         dfs(start)
+
         return results
 
     def dfs_iterative(self, start):
@@ -43,7 +45,8 @@ class Graph:
             for vertex in self.adjacency_list[current]:
                 if vertex not in memory:
                     stack.append(vertex)
-                    memory[vertex] = True
+                    memory[vertex] = True # not to duplicate it
+
         return results
     
     def bfs_iterative(self, start):
