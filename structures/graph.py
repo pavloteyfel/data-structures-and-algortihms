@@ -18,10 +18,8 @@ class Graph:
         def dfs(node):
             if not node:
                 return
-            
             results.append(node)
             memory[node] = True
-
             for vertex in self.adjacency_list[node]:
                 if vertex not in memory:
                     dfs(vertex)

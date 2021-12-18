@@ -12,10 +12,16 @@ class Node:
         self.value = value
         self.left = None
         self.right = None
+    
+    def __repr__(self):
+        return f'Node({self.value})'
 
 class BSTIterative:
     def __init__(self):
         self.root = None
+    
+    def __repr__(self):
+        return f'BST({self.root})'
 
     def insert(self, value):
         node = Node(value)
@@ -71,13 +77,13 @@ class BSTIterative:
   
     def traverse_pre(self):
         results = []
-        stack = [self.root]
+        stack = []
+        stack.append(self.root)
         while stack:
             node = stack.pop()
-            if node:
-                stack.append(node.right)
-                stack.append(node.left)
-                results.append(node.value)
+            results.append(node.value)
+            if node.right: stack.append(node.right)
+            if node.left: stack.append(node.left)
         return results
 
     def traverse_post(self):

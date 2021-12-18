@@ -35,6 +35,8 @@
     - implementation:
         - add/remove vertex
         - add/remove edge
+        - dfs iterative and recursive
+        - bfs iterative
 - Sets & Set Theory
 - Algorithm Design & Analysis
 
@@ -61,6 +63,9 @@
 - Networking
 
 ## Other
+- OS: Linux, Windows
+- Scripting
+- Read others code
 - Open source
     - Zero to Mastery
 - Blog
