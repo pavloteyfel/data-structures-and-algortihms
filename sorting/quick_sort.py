@@ -22,5 +22,6 @@ def quick_sort(array):
 
 
 assert quick_sort([4, 6, 3, 1, 2, 8, 9]) == [1, 2, 3, 4, 6, 8, 9]
+assert quick_sort([3,1,2]) == [1,2,3]
 assert quick_sort([1]) == [1]
 assert quick_sort([]) == []
