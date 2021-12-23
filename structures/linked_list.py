@@ -6,6 +6,7 @@ class Node:
     def __repr__(self):
         return f'Node({self.value})'
 
+
 class LinkedList:
     def __init__(self):
         self.head = None
@@ -18,16 +19,19 @@ class LinkedList:
     def traverse(self):
         current = self.head
         while current:
-            yield current
+            yield current.value
             current = current.next
 
     def get(self, index):
+        if not (0 <= index < self.size):
+            return None
+
         current = self.head
         counter = 0
         while index != counter:
             current = current.next
             counter += 1
-        return current
+        return current.value
 
     
     def append(self, value):
@@ -38,6 +42,17 @@ class LinkedList:
         self.tail.next = node
         self.tail = node
         self.size += 1
+    
+    def reverse(self):
+        current = self.head
+        while current.next:
+            nxt = current.next
+            nxt_nxt = current.next.next
+            current.next = nxt_nxt
+            nxt.next = self.head
+            self.head = nxt
+        self.tail = current
+
 
 
 ll = LinkedList()
@@ -46,4 +61,10 @@ ll.append(2)
 ll.append(6)
 ll.append(3)
 ll.append(9)
-print(ll.get(4))
+
+assert list(ll.traverse()) == [3, 2, 6, 3, 9]
+assert ll.get(0) == 3
+assert ll.size == 5
+assert ll.get(5) == None
+ll.reverse()
+assert list(ll.traverse()) == [9, 3, 6, 2, 3]
