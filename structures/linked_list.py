@@ -31,8 +31,19 @@ class LinkedList:
         while index != counter:
             current = current.next
             counter += 1
-        return current.value
+        return current
 
+    def pop(self):
+        to_remove = self.tail
+
+        if self.size < 2:
+            self.head = self.tail = None
+        else:
+            previous = self.get(self.size - 2)
+            previous.next = None
+            self.tail = previous
+        self.size -= 1
+        return to_remove
     
     def append(self, value):
         node = Node(value)
@@ -63,7 +74,7 @@ ll.append(3)
 ll.append(9)
 
 assert list(ll.traverse()) == [3, 2, 6, 3, 9]
-assert ll.get(0) == 3
+assert ll.get(0).value == 3
 assert ll.size == 5
 assert ll.get(5) == None
 ll.reverse()
