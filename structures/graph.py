@@ -1,5 +1,6 @@
 from collections import deque
 
+
 class Graph:
     def __init__(self):
         self.adjacency_list = {}
@@ -10,7 +11,7 @@ class Graph:
     def add_edge(self, vertex_1, vertex_2):
         self.adjacency_list[vertex_1].append(vertex_2)
         self.adjacency_list[vertex_2].append(vertex_1)
-    
+
     def dfs_recursive(self, start):
         results = []
         memory = {}
@@ -43,10 +44,10 @@ class Graph:
             for vertex in self.adjacency_list[current]:
                 if vertex not in memory:
                     stack.append(vertex)
-                    memory[vertex] = True # not to duplicate it
+                    memory[vertex] = True  # not to duplicate it
 
         return results
-    
+
     def bfs_iterative(self, start):
         results = []
         memory = {}
@@ -65,6 +66,7 @@ class Graph:
                     memory[vertex] = True
 
         return results
+
 
 graph = Graph()
 graph.add_vertex('A')

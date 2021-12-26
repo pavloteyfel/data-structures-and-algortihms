@@ -6,6 +6,7 @@ class QuickUF:
         union: N
         find: 1
     """
+
     def __init__(self, N):
         self.id = list(range(N))
 
@@ -15,9 +16,11 @@ class QuickUF:
     def union(self, p, q):
         p_component_id, q_component_id = self.id[p], self.id[q]
         for i, component_id in enumerate(self.id):
-            if (component_id == p_component_id): self.id[i] = q_component_id
+            if (component_id == p_component_id):
+                self.id[i] = q_component_id
 
 ###############################################################################
+
 
 class QuickUnionUF:
     """
@@ -25,9 +28,10 @@ class QuickUnionUF:
         union: N
         find: N
     """
+
     def __init__(self, N):
         self.id = list(range(N))
-    
+
     def root(self, i):
         while self.id[i] != i:
             i = self.id[i]
@@ -47,16 +51,18 @@ class QuickUnionUF:
 
 ###############################################################################
 
+
 class WeightedQuickUnionUF:
     """
         init: N
         union: lgN
         find: lgN
     """
-    def __init__(self, N): 
+
+    def __init__(self, N):
         self.id = list(range(N))
         self.size = [1 for i in range(N)]
-    
+
     def find(self, i):
         """
         We reach the root then index number equals to the value
@@ -77,7 +83,8 @@ class WeightedQuickUnionUF:
         """
         root_p, root_q = self.find(p), self.find(q)
 
-        if root_p == root_q: return
+        if root_p == root_q:
+            return
 
         if self.size[root_p] > self.size[root_q]:
             self.id[root_p] = root_q

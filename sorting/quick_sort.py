@@ -1,5 +1,6 @@
-def swap(array, i, j ):
+def swap(array, i, j):
     array[i], array[j] = array[j], array[i]
+
 
 def pivot(array, start, end):
     pivot_index = start
@@ -10,6 +11,7 @@ def pivot(array, start, end):
             swap(array, i, swap_index)
     swap(array, pivot_index, swap_index)
     return swap_index
+
 
 def quick_sort(array):
     def sort(array, left, right):
@@ -22,6 +24,6 @@ def quick_sort(array):
 
 
 assert quick_sort([4, 6, 3, 1, 2, 8, 9]) == [1, 2, 3, 4, 6, 8, 9]
-assert quick_sort([3,1,2]) == [1,2,3]
+assert quick_sort([3, 1, 2]) == [1, 2, 3]
 assert quick_sort([1]) == [1]
 assert quick_sort([]) == []

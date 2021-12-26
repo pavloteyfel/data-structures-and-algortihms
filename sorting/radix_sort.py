@@ -24,7 +24,6 @@ def counting_sort(array, place):
         array[i] = output[i]
 
 
-
 def radix_sort(array):
     # Get maximum element
     max_element = max(array)

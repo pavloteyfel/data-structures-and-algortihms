@@ -1,9 +1,11 @@
-import time
-import random
 from merge_sort import merge_sort
 from quick_sort import quick_sort
 from radix_sort import radix_sort
 from insertion_sort import insertion_sort
+
+import random
+import time
+
 
 def performance(func):
     def wrapper(*args, **kwargs):
@@ -13,6 +15,7 @@ def performance(func):
         print(f'{func.__name__} runtime - {end - start:0.8f}')
         return result
     return wrapper
+
 
 merge_sort = performance(merge_sort)
 quick_sort = performance(quick_sort)
