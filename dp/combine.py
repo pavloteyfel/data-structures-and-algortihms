@@ -1,3 +1,6 @@
+import numpy as np
+
+
 def combine(array, k):
     global counter
 
