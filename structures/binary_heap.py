@@ -1,5 +1,6 @@
 # Binary min Heap implementation
 
+
 def get_children(root_i, size):
     left = root_i * 2 + 1
     right = root_i * 2 + 2
@@ -10,7 +11,7 @@ def get_children(root_i, size):
 def get_root(child_i):
     if child_i == 0:
         return 0
-    index = (child_i-1) // 2
+    index = (child_i - 1) // 2
     return index
 
 
@@ -26,7 +27,7 @@ def insert(array, value):
 
 def extract_min(array):
     # swap the root value and the last inserted value
-    array[0], array[len(array)-1] = array[len(array)-1], array[0]
+    array[0], array[len(array) - 1] = array[len(array) - 1], array[0]
 
     # remove the max value from the array and store it
     max_value = array.pop()
