@@ -16,19 +16,19 @@ def create_graph(edges: list[tuple[str, str]]) -> dict:
 
 def traversal(graph: dict[str, str], node: str) -> list:
     """Simple graph traversal"""
-    memo = set()
-    node_list = []
+    memo: set = set()
+    node_list: list = []
 
-    def _traveral(graph: dict[str, str], node: str) -> list:
+    def _traveral(graph: dict[str, str], node: str, memo: set, node_list: list) -> list:
         """Inner recursive graph traversal"""
         node_list.append(node)
         memo.add(node)
         for neighbour in graph[node]:
             if neighbour not in memo:
-                _traveral(graph, neighbour)
+                _traveral(graph, neighbour, memo, node_list)
         return node_list
 
-    return _traveral(graph, node)
+    return _traveral(graph, node, memo, node_list)
 
 
 def count_components(edge: list[tuple[str, str]]) -> int:
@@ -60,6 +60,8 @@ my_edges = [
     ("k", "l"),
     ("o", "n"),
 ]
+
+
 
 
 print(count_components(my_edges))
