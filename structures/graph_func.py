@@ -101,6 +101,7 @@ def explore_coord(grid, row, col, memo):
 
     return True
 
+
 def island_counter(grid):
     counter = 0
     memo = set()
