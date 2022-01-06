@@ -101,6 +101,17 @@ def explore_coord(grid, row, col, memo):
 
     return True
 
+def island_counter(grid):
+    counter = 0
+    memo = set()
+
+    for row in range(len(grid)):
+        for col in range(len(grid[row])):
+            if explore_coord(grid, row, col, memo):
+                counter += 1
+
+    return counter
+
 
 my_edges = [
     ("i", "j"),
