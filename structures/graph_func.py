@@ -55,8 +55,6 @@ def explore(graph: dict[str, str], node: str, memo: set) -> bool:
     return True
 
 
-
-
 def shortest_neighbour(edges, src, dst):
     """Return shortest path between two nodes"""
     graph = create_graph(edges)
@@ -82,6 +80,27 @@ def shortest_neighbour(edges, src, dst):
 
 def in_boundry(grid, row, col):
     return 0 <= row < len(grid) and 0 <= col < len(grid[row])
+
+
+def explore_coord(grid, row, col, memo):
+    if not in_boundry(grid, row, col):
+        return False
+
+    if grid[row][col] == 0:
+        return False
+
+    if (row, col) in memo:
+        return False
+
+    memo.add((row, col))
+
+    explore_coord(grid, row + 1, col, memo)
+    explore_coord(grid, row - 1, col, memo)
+    explore_coord(grid, row, col + 1, memo)
+    explore_coord(grid, row, col - 1, memo)
+
+    return True
+
 
 my_edges = [
     ("i", "j"),
