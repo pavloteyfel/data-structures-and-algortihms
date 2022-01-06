@@ -80,6 +80,9 @@ def shortest_neighbour(edges, src, dst):
     return None
 
 
+def in_boundry(grid, row, col):
+    return 0 <= row < len(grid) and 0 <= col < len(grid[row])
+
 my_edges = [
     ("i", "j"),
     ("k", "i"),
