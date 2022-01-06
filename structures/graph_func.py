@@ -55,6 +55,31 @@ def explore(graph: dict[str, str], node: str, memo: set) -> bool:
     return True
 
 
+
+
+def shortest_neighbour(edges, src, dst):
+    """Return shortest path between two nodes"""
+    graph = create_graph(edges)
+    queue = deque()
+    memo = set()
+
+    queue.append((src, 0))
+    memo.add(src)
+
+    while queue:
+        node, distance = queue.popleft()
+
+        if node == dst:
+            return distance
+
+        for vertex in graph[node]:
+            if vertex not in memo:
+                queue.append((vertex, distance + 1))
+                memo.add(vertex)
+
+    return None
+
+
 my_edges = [
     ("i", "j"),
     ("k", "i"),
@@ -63,4 +88,6 @@ my_edges = [
     ("o", "n"),
 ]
 
+
+assert shortest_neighbour(my_edges, "m", "j") == 3
 assert count_components(my_edges) == 2
