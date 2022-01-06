@@ -1,4 +1,6 @@
 """Graph related topics"""
+import queue
+from collections import deque
 
 
 def create_graph(edges: list[tuple[str, str]]) -> dict:
@@ -61,7 +63,4 @@ my_edges = [
     ("o", "n"),
 ]
 
-
-
-
-print(count_components(my_edges))
+assert count_components(my_edges) == 2
