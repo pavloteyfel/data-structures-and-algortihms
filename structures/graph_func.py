@@ -122,5 +122,15 @@ my_edges = [
 ]
 
 
+grid = [
+    [0, 0, 1, 0, 0],
+    [0, 1, 1, 0, 0],
+    [0, 0, 0, 1, 1],
+    [1, 0, 1, 0, 1],
+    [0, 0, 1, 0, 0],
+]
+
+
+assert island_counter(grid) == 4
 assert shortest_neighbour(my_edges, "m", "j") == 3
 assert count_components(my_edges) == 2
