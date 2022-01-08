@@ -42,7 +42,7 @@ def extract_min(array):
             break
 
         # If there are only right
-        if left < 0 and right >= 0:
+        if right >= 0 > left:
             # then update to left if its bigger
             if array[root] > array[right]:
                 array[root], array[right] = array[right], array[root]
@@ -53,7 +53,7 @@ def extract_min(array):
                 break
 
         # If there is only left
-        if right < 0 and left >= 0:
+        if left >= 0 > right:
             # then update to right if its bigger
             if array[root] > array[left]:
                 array[root], array[left] = array[left], array[root]
