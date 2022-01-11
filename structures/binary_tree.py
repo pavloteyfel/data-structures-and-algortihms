@@ -179,13 +179,11 @@ class BSTRecursive:
                 if not root.left:
                     return root.right
 
-                # megeressük a jobb oldali érték legbaloldalibb értékét
                 tmp = root.right
                 while tmp.left:
                     tmp = tmp.left
 
-                root.value = tmp.value  # itt a legbaloldalibb értékkel felülírjuk
-                # itt pedig törlést kérünk
+                root.value = tmp.value 
                 root.right = _delete(root.right, root.value)
 
             elif root.value > value:
