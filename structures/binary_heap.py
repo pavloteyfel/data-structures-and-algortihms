@@ -1,94 +1,78 @@
-# Binary min Heap implementation
+heap = []
 
 
-def get_children(root_i, size):
-    left = root_i * 2 + 1
-    right = root_i * 2 + 2
-    # If out of boundary then return -1
-    return left if size > left else -1, right if size > right else -1
+def check_boundries(heap, index):
+    return 0 <= index < len(heap)
 
 
-def get_root(child_i):
-    if child_i == 0:
+def get_parent(heap, index):
+    if index == 0:
         return 0
-    index = (child_i - 1) // 2
-    return index
+
+    if not check_boundries(heap, index):
+        raise IndexError
+
+    return (index - 1) // 2
 
 
-def insert(array, value):
-    array.append(value)
-    child = len(array) - 1
-    root = get_root(child)
-    while array[root] > array[child]:
-        array[root], array[child] = array[child], array[root]
-        child = root
-        root = get_root(child)
+def switch(heap, i, j):
+    heap[i], heap[j] = heap[j], heap[i]
 
 
-def extract_min(array):
-    # swap the root value and the last inserted value
-    array[0], array[len(array) - 1] = array[len(array) - 1], array[0]
+def get_children_indices(parent_index):
+    return ((parent_index * 2) + 1, (parent_index * 2) + 2)
 
-    # remove the max value from the array and store it
-    max_value = array.pop()
 
-    root = 0
+def get_proper_child(heap, parent_index):
+    left, right = get_children_indices(parent_index)
+    left_exists = check_boundries(heap, left)
+    right_exists = check_boundries(heap, right)
+
+    if left_exists and right_exists:
+        if heap[left] > heap[right]:
+            return right
+        else:
+            return left
+
+    if left_exists:
+        return left
+
+    if right_exists:
+        return right
+
+    return -1
+
+
+def bubble_down(heap):
+    parent = 0
 
     while True:
-        left, right = get_children(root, len(array))
-
-        # If there are no children then stop, base case
-        if left < 0 and right < 0:
-            break
-
-        # If there are only right
-        if right >= 0 > left:
-            # then update to left if its bigger
-            if array[root] > array[right]:
-                array[root], array[right] = array[right], array[root]
-
-                # set the new root
-                root = left
-            else:
-                break
-
-        # If there is only left
-        if left >= 0 > right:
-            # then update to right if its bigger
-            if array[root] > array[left]:
-                array[root], array[left] = array[left], array[root]
-
-                # set root to right
-                root = right
-            else:
-                break
-
-        # There are both left and right, then update swap with min
-        if right >= 0 and left >= 0:
-            if array[right] > array[left]:
-                array[left], array[root] = array[root], array[left]
-
-                # set the new root
-                root = left
-
-            else:
-                array[right], array[root] = array[root], array[right]
-
-                # set the new root
-                root = right
-
-    return max_value
+        if (child := get_proper_child(heap, parent)) >= 0:
+            if heap[parent] > heap[child]:
+                switch(heap, parent, child)
+                parent = child
+                continue
+        break
 
 
-array = []
+def bubble_up(heap):
+    target_index = len(heap) - 1
+    parent_index = get_parent(heap, target_index)
 
-insert(array, 4)
-insert(array, 6)
-insert(array, 3)
-insert(array, 7)
-insert(array, 9)
-insert(array, 1)
-insert(array, 2)
-print(array)
-extract_min(array)
-print(array)
+    while heap[parent_index] > heap[target_index]:
+        switch(heap, parent_index, target_index)
+        target_index = parent_index
+        parent_index = get_parent(heap, target_index)
+
+
+def insert(heap, value):
+    heap.append(value)
+    bubble_up(heap)
+
+
+def extract(heap):
+    switch(heap, 0, -1)
+    to_extract = heap.pop()
+    bubble_down(heap)
+    return to_extract
+
