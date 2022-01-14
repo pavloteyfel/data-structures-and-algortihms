@@ -1,5 +1,5 @@
-from collections import deque
 import unittest
+from collections import deque
 
 
 # Search: https://leetcode.com/problems/search-in-a-binary-search-tree/
@@ -14,7 +14,7 @@ class Node:
         self.right = None
 
     def __repr__(self):
-        return f'Node({self.value})'
+        return f"Node({self.value})"
 
 
 class BSTIterative:
@@ -22,7 +22,7 @@ class BSTIterative:
         self.root = None
 
     def __repr__(self):
-        return f'BST({self.root})'
+        return f"BST({self.root})"
 
     def insert(self, value):
         node = Node(value)
@@ -121,6 +121,7 @@ class BSTRecursive:
             if not root:
                 return 0
             return 1 + max(depth(root.left), depth(root.right))
+
         return depth(self.root)
 
     def validate(self):
@@ -133,8 +134,11 @@ class BSTRecursive:
             if not (node.value > left_b and node.value < right_b):
                 return False
 
-            return (_validate(node.left, left_b, node.value) and _validate(node.right, node.value, right_b))
-        return _validate(self.root, float('-inf'), float('inf'))
+            return _validate(node.left, left_b, node.value) and _validate(
+                node.right, node.value, right_b
+            )
+
+        return _validate(self.root, float("-inf"), float("inf"))
 
     def insert(self, value):
         def _insert(root, value):
@@ -183,7 +187,7 @@ class BSTRecursive:
                 while tmp.left:
                     tmp = tmp.left
 
-                root.value = tmp.value 
+                root.value = tmp.value
                 root.right = _delete(root.right, root.value)
 
             elif root.value > value:
@@ -216,6 +220,7 @@ class BSTRecursive:
                 traverse(node.left)
             if node.right:
                 traverse(node.right)
+
         traverse(self.root)
         return results
 
@@ -299,16 +304,16 @@ class TestBST(unittest.TestCase):
 
     def test_delete_recursive(self):
         self.bstr.delete(21)
-        self.assertEqual(self.bstr.traverse_in(), [
-                         5, 9, 11, 13, 15, 19, 30, 33, 48])
+        self.assertEqual(self.bstr.traverse_in(), [5, 9, 11, 13, 15, 19, 30, 33, 48])
 
     def test_max_depth_recursive(self):
         self.assertEqual(self.bstr.max_depth(), 4)
 
     def test_traverse_lo(self):
-        self.assertEqual(self.bsti.traverse_lo(), [
-                         15, 9, 21, 5, 11, 19, 33, 13, 30, 48])
+        self.assertEqual(
+            self.bsti.traverse_lo(), [15, 9, 21, 5, 11, 19, 33, 13, 30, 48]
+        )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
