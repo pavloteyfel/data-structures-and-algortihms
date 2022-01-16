@@ -33,3 +33,5 @@ def radix_sort(array):
     while max_element // place > 0:
         counting_sort(array, place)
         place *= 10
+    
+    return array
