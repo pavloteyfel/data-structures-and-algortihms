@@ -5,11 +5,9 @@ def can_sum(array, k):
     for i, value in enumerate(tabulator):
         if value:
             for j in array:
-                if i+j < size:
-                    tabulator[i+j] = True
-                    print(tabulator)
-    return tabulator[size-1]
+                if i + j < size:
+                    tabulator[i + j] = True
+    return tabulator[size - 1]
 
 
-a = [1, 2, 3, 4]
-a[10] = 7
+assert can_sum([4, 8, 9, 2], 11) == True
