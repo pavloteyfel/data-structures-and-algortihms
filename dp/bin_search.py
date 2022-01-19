@@ -1,15 +1,10 @@
-
-array = [10, 13, 28, 44, 63]
-
-
-
-def search(array, value):
+def binary_search(array, value):
     left = 0
     right = len(array) - 1
 
     while left <= right:
-        middle = (left + right) // 2 # // means we take the floor value 0 + 5 = 5 / 2 = 2.5 -> 2
-
+        # // means we take the floor value 0 + 5 = 5 / 2 = 2.5 -> 2
+        middle = (left + right) // 2 
         if array[middle] == value:
             return middle
 
@@ -19,3 +14,4 @@ def search(array, value):
             left = middle + 1
     return -1
 
+assert binary_search([10, 13, 28, 44, 63], 44) == 3
