@@ -1,6 +1,3 @@
-import numpy as np
-
-
 def combine(array, k):
     global counter
 
@@ -11,9 +8,7 @@ def combine(array, k):
 
     for i in range(0, len(array)):
         first = array[i]
-        sub_result = combine(array[i+1:], k-1)
+        sub_result = combine(array[i + 1 :], k - 1)
         for result in sub_result:
             inner_list.append([first] + result)
     return inner_list
-
-
