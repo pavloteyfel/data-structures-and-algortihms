@@ -1,5 +1,4 @@
 """Graph related topics"""
-import queue
 from collections import deque
 
 
