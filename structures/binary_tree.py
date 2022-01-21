@@ -2,11 +2,6 @@ import unittest
 from collections import deque
 
 
-# Search: https://leetcode.com/problems/search-in-a-binary-search-tree/
-# Delete: https://leetcode.com/problems/delete-node-in-a-bst/discuss/821420/Python-O(h)-solution-explained
-# inorder traversal: https://leetcode.com/problems/binary-tree-inorder-traversal/
-# todo: https://leetcode.com/problems/balanced-binary-tree/
-# simpler post order with stack: https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45786/Python-recursive-and-iterative-solutions.
 class Node:
     def __init__(self, value):
         self.value = value
@@ -125,8 +120,6 @@ class BSTRecursive:
         return depth(self.root)
 
     def validate(self):
-        # https://www.youtube.com/watch?v=s6ATEkipzow
-        # https://leetcode.com/problems/validate-binary-search-tree/submissions/
         def _validate(node, left_b, right_b):
             if not node:
                 return True
