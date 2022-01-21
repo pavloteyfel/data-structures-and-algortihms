@@ -3,7 +3,6 @@ def binary_search(array, value):
     right = len(array) - 1
 
     while left <= right:
-        # // means we take the floor value 0 + 5 = 5 / 2 = 2.5 -> 2
         middle = (left + right) // 2 
         if array[middle] == value:
             return middle
