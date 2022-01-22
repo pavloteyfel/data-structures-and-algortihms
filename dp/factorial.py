@@ -11,5 +11,4 @@ def factorial(n):
         return 1
 
     # n! is equal to the n * n-1, until we reach zero: 0! = 1
-    return n * factorial(n-1)
-
+    return n * factorial(n - 1)
