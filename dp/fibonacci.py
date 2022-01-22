@@ -8,10 +8,9 @@ def fib(n):
     # fib(1) = 1
     if n < 2:
         return n
-    
-    # Until n=2 we don't know what is the fib number, so we need to find it out 
-    return fib(n-1) + fib(n-2)
 
+    # Until n=2 we don't know what is the fib number, so we need to find it out
+    return fib(n - 1) + fib(n - 2)
 
 
 def fib2(n):
