@@ -1,5 +1,6 @@
 # Demonstrates usage of frequency counter
 
+
 def anagram_v2(s1, s2):
     s1_counter = {}
     s2_counter = {}
@@ -30,5 +31,5 @@ def anagram_v3(s1, s2):
     return True
 
 
-assert anagram_v2('anagram', 'gramana') == True
-assert anagram_v3('anagram', 'gramana') == True
+assert anagram_v2("anagram", "gramana") == True
+assert anagram_v3("anagram", "gramana") == True

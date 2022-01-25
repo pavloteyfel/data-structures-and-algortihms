@@ -12,4 +12,4 @@ def sum_range(n):
 
     # In any other cases we need to calculate the number based on the n + n-1
     # forumla until we reach zero
-    return n + sum_range(n-1)
+    return n + sum_range(n - 1)

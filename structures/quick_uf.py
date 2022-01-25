@@ -1,10 +1,10 @@
 class QuickUF:
     """
-        Quadtratic algorithm, we just update every p's component id to the q 
-        component id
-        init: N
-        union: N
-        find: 1
+    Quadtratic algorithm, we just update every p's component id to the q
+    component id
+    init: N
+    union: N
+    find: 1
     """
 
     def __init__(self, N):
@@ -16,17 +16,18 @@ class QuickUF:
     def union(self, p, q):
         p_component_id, q_component_id = self.id[p], self.id[q]
         for i, component_id in enumerate(self.id):
-            if (component_id == p_component_id):
+            if component_id == p_component_id:
                 self.id[i] = q_component_id
+
 
 ###############################################################################
 
 
 class QuickUnionUF:
     """
-        init: N
-        union: N
-        find: N
+    init: N
+    union: N
+    find: N
     """
 
     def __init__(self, N):
@@ -49,14 +50,15 @@ class QuickUnionUF:
 
         self.id[root_p] = root_q
 
+
 ###############################################################################
 
 
 class WeightedQuickUnionUF:
     """
-        init: N
-        union: lgN
-        find: lgN
+    init: N
+    union: lgN
+    find: lgN
     """
 
     def __init__(self, N):
