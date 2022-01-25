@@ -8,6 +8,7 @@ graph = {
     "e": ["d", "c"],
 }
 
+
 def shortest_path(graph, src, dst):
     queue = deque()
     memo = set()
