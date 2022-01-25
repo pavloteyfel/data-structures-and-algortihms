@@ -11,10 +11,8 @@ def product(array):
     # first element
     if len(array) == 1:
         return array[0]
-    
+
     # Here we know that there will be at least 2 elements in the array
     # We slice the first element and send the remaining elements for further
     # processing
     return array[0] * product(array[1:])
-
-
