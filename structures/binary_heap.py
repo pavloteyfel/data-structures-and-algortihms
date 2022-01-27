@@ -75,4 +75,3 @@ def extract(heap):
     to_extract = heap.pop()
     bubble_down(heap)
     return to_extract
-
