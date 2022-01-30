@@ -1,3 +1,6 @@
+from itertools import count
+
+
 def count_down(n):
     """
     Recursive function prints out numbers from n to 0 with 1 step
@@ -17,11 +20,13 @@ def count_down(n):
     count_down(n - 1)
 
 
-def count_down_v2(n, l=[]):
+def count_down_v2(n, l=None):
     """
     Recursive function returns a list of numbers from n to 0 with step
     >_ count_down_v2(5) will return a list [5, 4, 3, 2, 1, 0]
     """
+    if l is None:
+        l = []
 
     # We put the number in the list
     l.append(n)
@@ -34,3 +39,6 @@ def count_down_v2(n, l=[]):
     # If counter is still in progress, then we decrease the number by 1 and
     # return it to itself with the list for further operations
     return count_down_v2(n - 1, l)
+
+
+assert count_down_v2(5) == [5, 4, 3, 2, 1, 0]
