@@ -1,6 +1,4 @@
 # Roadmap
-- Have clear goals
-
 ## General Programming
 - Programming Fundamentals
 - Object Oriented Programming
@@ -81,8 +79,3 @@
 - How to design a program: https://htdp.org
 - Distributed systems: https://www.youtube.com/watch?v=cQP8WApzIQQ&list=PLrw6a1wE39_tb2fErI4-WkMbsvGQk9_UB
 - Grokkin Algorithms
-
-# Projects
-- Algorithm visualizer
-- StationX 2nd part / passwords
-- Build HTTP protocol
