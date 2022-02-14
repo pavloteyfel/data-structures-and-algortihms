@@ -1,6 +1,3 @@
-# Demonstrates usage of frequency counter
-
-
 def anagram_v2(s1, s2):
     s1_counter = {}
     s2_counter = {}
